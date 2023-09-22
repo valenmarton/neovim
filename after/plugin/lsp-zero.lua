@@ -3,6 +3,7 @@ local lsp = require('lsp-zero').preset({})
 lsp.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
+
   lsp.default_keymaps({ buffer = bufnr })
   lsp.buffer_autoformat()
 
@@ -32,6 +33,34 @@ lsp.on_attach(function(client, bufnr)
 end)
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+-- WARN: TO VALIDATE: :lua require('lsp-zero.check').inspect_server_config('tsserver')
+-- :lua require('lsp-zero.check').inspect_settings('tsserver')
+-- TODO: quotePreference is not working
+lsp.configure('tsserver', {
+  settings = {
+    completions = {
+      completeFunctionCalls = true
+    },
+    preferences = {
+      quotePreference = "single"
+    },
+    typescript = {
+      format = {
+        semicolons = 'insert',
+        insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = false,
+        trimTrailingWhitespace = true,
+      },
+      preferences = {
+        quoteStyle = "single"
+      },
+    },
+    javascript = {
+      preferences = {
+        quoteStyle = "single"
+      }
+    }
+  }
+})
 -- require('lspconfig').tsserver.setup({
 --   on_attach = function(client, bufnr)
 --     print("hello tserver")
