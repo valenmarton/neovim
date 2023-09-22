@@ -90,7 +90,13 @@ require("lazy").setup({
     init = function() vim.g.mkdp_filetypes = { "markdown" } end
   },
   {
-    'f-person/git-blame.nvim'
+    'f-person/git-blame.nvim',
+    keys = {
+      -- { "<leader>gbt", "<cmd>GitBlameToggle<cr>", desc = "GitBlameToggle" },
+      config = function()
+        require('gitblame').setup({ enabled = false })
+      end
+    }
   },
   -- FIX: not working
   -- {

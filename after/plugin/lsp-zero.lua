@@ -4,7 +4,6 @@ lsp.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
   lsp.default_keymaps({ buffer = bufnr })
-  -- TODO: configure prettier format ?
   lsp.buffer_autoformat()
 
   local opts = { buffer = bufnr }
@@ -12,12 +11,11 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set({ 'n', 'x' }, '<leader>f', function() --maybe gf is better
     vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
   end, opts)
-  vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr })
-  vim.keymap.set('n', 'gi', '<cmd>Telescope lsp_definitions<cr>', { buffer = bufnr })
+  vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
+  vim.keymap.set('n', 'gi', '<cmd>Telescope lsp_definitions<cr>', opts)
   vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
   vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
   vim.keymap.set('n', '<leader>rn', function() --rename symbol
-    vim.lsp.buf.rename()
   end)
   vim.keymap.set('n', '<leader>ca', function()
     vim.lsp.buf.code_action({ async = false, timeout_ms = 10000 })
@@ -34,6 +32,11 @@ lsp.on_attach(function(client, bufnr)
 end)
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+-- require('lspconfig').tsserver.setup({
+--   on_attach = function(client, bufnr)
+--     print("hello tserver")
+--   end
+-- })
 
 lsp.setup()
 
@@ -61,6 +64,8 @@ cmp.setup({
       preset = 'codicons'
     })
   },
-  --TODO: implement path cmp
+  sources = {
+    { name = 'nvim_lsp_signature_help' }, { name = 'nvim_lsp' }, { name = 'buffer' }, { name = 'path' }
+  }
 }
 )
