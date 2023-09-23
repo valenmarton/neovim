@@ -26,10 +26,10 @@ lsp.on_attach(function(client, bufnr)
   --TODO: maybe more telescope
 
   lsp.set_sign_icons({
-    error = '✘',
-    warn = '▲',
-    hint = '⚑',
-    info = '»'
+    error = '',
+    warn = '',
+    hint = '',
+    info = ''
   })
 end)
 -- (Optional) Configure lua language server for neovim

@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "svrana/neosolarized.nvim",
+  -- "svrana/neosolarized.nvim",
   { "rose-pine/neovim",        name = "rose-pine" },
   "nvim-treesitter/nvim-treesitter",
   "nvim-telescope/telescope.nvim",
@@ -98,7 +98,6 @@ require("lazy").setup({
       end
     }
   },
-  -- FIX: not working
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -107,5 +106,13 @@ require("lazy").setup({
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
     },
+  },
+  {
+    "Tsuzat/NeoSolarized.nvim",
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      vim.cmd [[ colorscheme NeoSolarized ]]
+    end
   }
 }, opts)
