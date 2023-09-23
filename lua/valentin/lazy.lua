@@ -113,6 +113,10 @@ require("lazy").setup({
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       vim.cmd [[ colorscheme NeoSolarized ]]
-    end
-  }
+    end,
+    opts = {
+      transparent = true
+    },
+  },
+  { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
 }, opts)
