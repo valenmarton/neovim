@@ -17,6 +17,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
   vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
   vim.keymap.set('n', '<leader>rn', function() --rename symbol
+    vim.lsp.buf.rename()
   end)
   vim.keymap.set('n', '<leader>ca', function()
     vim.lsp.buf.code_action({ async = false, timeout_ms = 10000 })
