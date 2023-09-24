@@ -18,6 +18,7 @@ vim.opt.incsearch = true
 -- turning off swapfile, using undotree plugin instead
 vim.opt.swapfile = false
 vim.opt.backup = false
+vim.opt.undofile = true
 
 vim.opt.incsearch = true
 vim.opt.incsearch = true
