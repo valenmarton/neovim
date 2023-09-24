@@ -12,7 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- "svrana/neosolarized.nvim",
   { "rose-pine/neovim",        name = "rose-pine" },
   "nvim-treesitter/nvim-treesitter",
   "nvim-telescope/telescope.nvim",
@@ -107,16 +106,18 @@ require("lazy").setup({
       -- refer to the configuration section below
     },
   },
-  {
-    "Tsuzat/NeoSolarized.nvim",
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      vim.cmd [[ colorscheme NeoSolarized ]]
-    end,
-    opts = {
-      transparent = true
-    },
-  },
-  { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
+  { 'svrana/neosolarized.nvim' },
+  -- {
+  --   "Tsuzat/NeoSolarized.nvim",
+  --   lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+  --   priority = 1000, -- make sure to load this before all the other start plugins
+  --   config = function()
+  --     vim.cmd [[ colorscheme NeoSolarized ]]
+  --   end,
+  --   opts = {
+  --     transparent = true
+  --   },
+  -- },
+  { 'akinsho/bufferline.nvim',  version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
+  { 'tjdevries/colorbuddy.nvim' },
 }, opts)
