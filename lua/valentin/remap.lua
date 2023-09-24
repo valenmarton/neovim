@@ -20,3 +20,17 @@ vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 -- replace all occurance fancy
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- do not yank with x
+vim.keymap.set('n', 'x', '"_x')
+
+
+-- increase/recrease number
+vim.keymap.set('n', '+', '<C-a>')
+vim.keymap.set('n', '-', '<C-x')
+
+-- delete a word backward
+vim.keymap.set('n', 'dw', 'vb"_d')
+vim.keymap.set('n', '<C-a', 'gg<S-v>G')
+
+-- harpoon sift/ctrl + hjkl
