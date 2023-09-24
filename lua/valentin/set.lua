@@ -25,3 +25,5 @@ vim.opt.termguicolors = true
 
 vim.opt.hlsearch = false
 vim.opt.cursorline = true
+
+vim.opt.title = true
