@@ -1,6 +1,4 @@
 --TODO: use vim.opt for vim.cmd
---
--- vim.cmd('colorscheme rose-pine')
 vim.cmd('set relativenumber')
 vim.cmd('set number')
 
