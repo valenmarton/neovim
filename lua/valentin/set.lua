@@ -9,6 +9,13 @@ vim.cmd('set softtabstop=0')
 vim.cmd('set autoindent')
 vim.cmd('set smarttab')
 
+
+-- USE tabs instead of spaces in vim
+-- vim.cmd('set autoindent')
+-- vim.cmd('set noexpandtab')
+-- vim.cmd('set tabstop=2')
+-- vim.cmd('set shiftwidth=2')
+
 vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes"
 vim.opt.incsearch = true

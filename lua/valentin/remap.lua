@@ -27,7 +27,7 @@ vim.keymap.set('n', 'x', '"_x')
 
 -- increase/recrease number
 vim.keymap.set('n', '+', '<C-a>')
-vim.keymap.set('n', '-', '<C-x')
+vim.keymap.set('n', '-', '<C-x>')
 
 -- delete a word backward
 vim.keymap.set('n', 'dw', 'vb"_d')

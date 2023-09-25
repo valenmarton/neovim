@@ -38,12 +38,16 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 -- :lua require('lsp-zero.check').inspect_settings('tsserver')
 -- TODO: quotePreference is not working
 lsp.configure('tsserver', {
+  preferences = {
+    importModuleSpecifierPreference = "relative"
+  },
   settings = {
     completions = {
       completeFunctionCalls = true
     },
     preferences = {
-      quotePreference = "single"
+      quotePreference = "single",
+      importModuleSpecifier = "relative"
     },
     typescript = {
       format = {
@@ -52,7 +56,8 @@ lsp.configure('tsserver', {
         trimTrailingWhitespace = true,
       },
       preferences = {
-        quoteStyle = "single"
+        quoteStyle = "single",
+        importModuleSpecifier = "relative"
       },
     },
     javascript = {
