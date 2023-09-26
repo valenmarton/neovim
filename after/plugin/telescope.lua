@@ -1,5 +1,6 @@
 -- DEFAULTS
 require('telescope').setup {
+  -- FIX: use -u only in certain cases, now live_grep does not respect gitignore and hidden files
   defaults = {
     vimgrep_arguments = {
       'rg',

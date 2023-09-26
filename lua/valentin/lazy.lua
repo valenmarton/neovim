@@ -12,7 +12,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { "rose-pine/neovim",        name = "rose-pine" },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    disable_background = true,
+    disable_italics = true
+  },
   "nvim-treesitter/nvim-treesitter",
   "nvim-telescope/telescope.nvim",
   {
@@ -47,7 +52,7 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
     },
   },
-  { 'akinsho/toggleterm.nvim', version = "*",     config = true },
+  { 'akinsho/toggleterm.nvim', version = "*", config = true },
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
@@ -106,7 +111,11 @@ require("lazy").setup({
       -- refer to the configuration section below
     },
   },
-  { 'svrana/neosolarized.nvim' },
+  {
+    'svrana/neosolarized.nvim',
+    comment_italics = true,
+    background_set = false,
+  },
   -- {
   --   "Tsuzat/NeoSolarized.nvim",
   --   lazy = false,    -- make sure we load this during startup if it is your main colorscheme
@@ -120,4 +129,10 @@ require("lazy").setup({
   -- },
   { 'akinsho/bufferline.nvim',  version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
   { 'tjdevries/colorbuddy.nvim' },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 }, opts)
