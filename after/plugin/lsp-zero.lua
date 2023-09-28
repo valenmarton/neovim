@@ -37,10 +37,22 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 -- WARN: TO VALIDATE: :lua require('lsp-zero.check').inspect_server_config('tsserver')
 -- :lua require('lsp-zero.check').inspect_settings('tsserver')
 -- TODO: quotePreference is not working
-lsp.configure('tsserver', {
-  preferences = {
-    importModuleSpecifierPreference = "relative"
+require('lspconfig').tsserver.setup({
+  init_options =
+  {
+    preferences = {
+      -- other preferences...
+      importModuleSpecifierPreference = 'relative',
+      importModuleSpecifierEnding = 'minimal',
+      quotePreference = "single",
+    },
+    format = {
+      semicolons = 'insert',
+      insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = false,
+      trimTrailingWhitespace = true,
+    },
   },
+  -- FIX: how does this work
   settings = {
     completions = {
       completeFunctionCalls = true
@@ -57,7 +69,8 @@ lsp.configure('tsserver', {
       },
       preferences = {
         quoteStyle = "single",
-        importModuleSpecifier = "relative"
+        importModuleSpecifier = "relative",
+        importModuleSpecifierPreference = "relative"
       },
     },
     javascript = {

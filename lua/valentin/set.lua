@@ -8,6 +8,7 @@ vim.cmd('set expandtab')
 vim.cmd('set softtabstop=0')
 vim.cmd('set autoindent')
 vim.cmd('set smarttab')
+vim.cmd('set shell=/bin/zsh')
 
 
 -- USE tabs instead of spaces in vim

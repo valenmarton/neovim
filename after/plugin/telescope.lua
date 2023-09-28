@@ -1,18 +1,18 @@
 -- DEFAULTS
 require('telescope').setup {
   -- FIX: use -u only in certain cases, now live_grep does not respect gitignore and hidden files
-  defaults = {
-    vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case',
-      '-u' -- thats the new thing
-    },
-  }
+  -- defaults = {
+  --   vimgrep_arguments = {
+  --     'rg',
+  --     '--color=never',
+  --     '--no-heading',
+  --     '--with-filename',
+  --     '--line-number',
+  --     '--column',
+  --     '--smart-case',
+  --     '-u' -- thats the new thing
+  --   },
+  -- }
 }
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})

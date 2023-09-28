@@ -133,6 +133,13 @@ require("lazy").setup({
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
+    opts = {
+      styles = {
+        keywords = {
+          italic = false
+        }
+      }
+    },
   },
+  { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false },
 }, opts)
