@@ -1,0 +1,6 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "set_cwd_to_current_dir"
+    ]
+}

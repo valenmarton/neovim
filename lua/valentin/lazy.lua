@@ -143,4 +143,5 @@ require("lazy").setup({
   },
   { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false },
   { "ray-x/go.nvim" },
+  { "stevearc/oil.nvim" },
 }, opts)
