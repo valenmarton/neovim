@@ -38,8 +38,7 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 -- :lua require('lsp-zero.check').inspect_settings('tsserver')
 -- TODO: quotePreference is not working
 require('lspconfig').tsserver.setup({
-  init_options =
-  {
+  init_options = {
     preferences = {
       -- other preferences...
       importModuleSpecifierPreference = 'relative',
@@ -85,6 +84,23 @@ require('lspconfig').tsserver.setup({
 --     print("hello tserver")
 --   end
 -- })
+--
+require('lspconfig').html.setup({
+  on_attach = function(client, bufnr)
+    print(client)
+  end,
+  settings = {
+    html = {
+      format = {
+        templating = false,
+        preserveNewLines = true,
+        extraLiners = '',
+        indentInnerHtml = true,
+        wrapLineLength = 120,
+      },
+    },
+  }
+})
 
 lsp.setup()
 
