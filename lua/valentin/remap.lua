@@ -33,5 +33,7 @@ vim.keymap.set('n', '-', '<C-x>')
 -- delete a word backward
 -- vim.keymap.set('n', 'dw', 'vb"_d')
 vim.keymap.set('n', '<C-a', 'gg<S-v>G')
+vim.keymap.set("n", "<leader>bd", "<cmd>%bd|e#<cr>", { desc = "Close all buffers but the current one" }) -- https://stackoverflow.com/a/42071865/516188
+
 
 -- harpoon sift/ctrl + hjkl ?
