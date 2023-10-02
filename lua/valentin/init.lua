@@ -26,3 +26,10 @@ require("valentin.lazy")
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
+-- :help highlight
+-- disabling background on gitsings
+vim.cmd('highlight GitSignsAdd guibg=NONE')
+vim.cmd('highlight GitSignsChange guibg=NONE')
+vim.cmd('highlight GitSignsDelete guibg=NONE')
+require('leap').add_default_mappings()
