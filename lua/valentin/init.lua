@@ -6,7 +6,7 @@ function set_cwd_to_current_file()
     current_directory = string.sub(current_directory, 7)
   end
   -- local opened_dir_without_oil_prefix = string.sub(current_directory, 7) -- Removes the first 6 characters
-  print("Opened >>> " .. current_directory)
+  print("Set cwd => " .. current_directory)
   vim.cmd('cd ' .. current_directory)
 end
 
