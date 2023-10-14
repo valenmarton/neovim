@@ -33,7 +33,7 @@ require('rose-pine').setup({
 
 })
 
-vim.cmd('colorscheme rose-pine')
+-- vim.cmd('colorscheme rose-pine')
 
 function ColorMyPencils(color)
   color = color or "rose-pine"

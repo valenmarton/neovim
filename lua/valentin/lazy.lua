@@ -110,22 +110,24 @@ require("lazy").setup({
       -- refer to the configuration section below
     },
   },
-  {
-    'svrana/neosolarized.nvim',
-    comment_italics = true,
-    background_set = false,
-  },
   -- {
-  --   "Tsuzat/NeoSolarized.nvim",
-  --   lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-  --   priority = 1000, -- make sure to load this before all the other start plugins
-  --   config = function()
-  --     vim.cmd [[ colorscheme NeoSolarized ]]
-  --   end,
-  --   opts = {
-  --     transparent = true
-  --   },
+  --   'svrana/neosolarized.nvim',
+  --   comment_italics = true,
+  --   background_set = false,
+  --   lazy = false
   -- },
+  {
+    "Tsuzat/NeoSolarized.nvim",
+    name = "neosol",
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      -- vim.cmd [[ colorscheme NeoSolarized ]]
+    end,
+    opts = {
+      transparent = true
+    },
+  },
   { 'akinsho/bufferline.nvim',  version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
   { 'tjdevries/colorbuddy.nvim' },
   {
@@ -148,9 +150,9 @@ require("lazy").setup({
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function()
-      require("go").setup()
-    end,
+    -- config = function()
+    --   require("go").setup()
+    -- end,
     event = { "CmdlineEnter" },
     ft = { "go", 'gomod' },
   },
@@ -183,4 +185,26 @@ require("lazy").setup({
   --     },
   --   },
   -- },
+  {
+    "nvimdev/lspsaga.nvim",
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons'
+    }
+  },
+  { "lukas-reineke/indent-blankline.nvim" }
+  -- lazy.nvim
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+  --     "MunifTanjim/nui.nvim",
+  --     -- OPTIONAL:
+  --     --   `nvim-notify` is only needed, if you want to use the notification view.
+  --     --   If not available, we use `mini` as the fallback
+  --     "rcarriga/nvim-notify",
+  --   }
+  -- }
+  , { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
 }, opts)
