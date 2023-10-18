@@ -206,5 +206,6 @@ require("lazy").setup({
   --     "rcarriga/nvim-notify",
   --   }
   -- }
-  , { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
+  , { "ellisonleao/gruvbox.nvim" },
+  { "folke/zen-mode.nvim" },
 }, opts)
