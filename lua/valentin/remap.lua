@@ -39,3 +39,4 @@ vim.keymap.set("n", "<leader>bd", "<cmd>%bd|e#<cr>", { desc = "Close all buffers
 
 
 -- harpoon sift/ctrl + hjkl ?
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true })

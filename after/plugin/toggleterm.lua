@@ -4,6 +4,7 @@ if not status_ok then
   return
 end
 
+vim.keymap.set({ 'n', 't', 'i' }, '<C-/>', ':ToggleTerm<CR>', { noremap = true, silent = true })
 vim.keymap.set({ 'n', 't' }, '<C-/>', ':ToggleTerm<CR>', { noremap = true, silent = true })
 
 toggleterm.setup({

@@ -29,7 +29,9 @@ vim.keymap.set('n', '<leadear>sr', builtin.oldfiles, {}) --search recent
 
 vim.keymap.set('n', '<leader>ss', builtin.lsp_document_symbols, {}) --search symbols
 
-vim.keymap.set('n', '<leader>,', builtin.buffers, {})
+vim.keymap.set('n', '<leader>,', function()
+  builtin.buffers({ sort_mru = true, ignore_current_buffer = true })
+end)
 
 vim.keymap.set('n', '<leader>.', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>/', builtin.live_grep, {})
