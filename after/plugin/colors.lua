@@ -1,5 +1,5 @@
 require('rose-pine').setup({
-  disable_background = true,
+  -- disable_background = true,
   disable_italics = true,
   dim_nc_background = false,
   disable_float_background = true,
@@ -36,7 +36,8 @@ require('rose-pine').setup({
 -- vim.cmd('colorscheme rose-pine')
 
 function ColorMyPencils(color)
-  color = color or "rose-pine"
+  -- color = color or "rose-pine"
+  color = color or "catppuccin"
 
   vim.cmd.colorscheme(color)
 
@@ -44,4 +45,4 @@ function ColorMyPencils(color)
   --vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
--- ColorMyPencils()
+ColorMyPencils()

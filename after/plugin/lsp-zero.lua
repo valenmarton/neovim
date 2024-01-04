@@ -38,6 +38,7 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 -- :lua require('lsp-zero.check').inspect_settings('tsserver')
 -- TODO: quotePreference is not working
 require('lspconfig').tsserver.setup({
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   init_options = {
     preferences = {
       -- other preferences...

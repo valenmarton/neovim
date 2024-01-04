@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 -- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<BS><BS>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -19,8 +20,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- im not using quickfix list yet so
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<C-k>", "require("trouble").next({skip_groups = true, jump = true})")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 -- replace all occurance fancy
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
@@ -39,4 +40,11 @@ vim.keymap.set("n", "<leader>bd", "<cmd>%bd|e#<cr>", { desc = "Close all buffers
 
 
 -- harpoon sift/ctrl + hjkl ?
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
+-- vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
+
+-- Save on ctrl+s
+vim.keymap.set({ "n", "i" }, "<C-s>", "<Esc><CMD>w<CR>")
+vim.keymap.set({ "n", "i" }, "<C-a>", "<Esc>ggVG")
+
+-- go to prev buffer
+vim.keymap.set("n", "<Leader><Tab>", ":b#<CR>")

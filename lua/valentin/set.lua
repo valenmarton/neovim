@@ -31,7 +31,7 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.hlsearch = false
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 
 vim.opt.title = true
 -- vim.opt.cmdheight = 0

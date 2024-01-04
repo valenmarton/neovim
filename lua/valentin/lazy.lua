@@ -16,7 +16,7 @@ require("lazy").setup({
     "rose-pine/neovim",
     name = "rose-pine",
   },
-  "nvim-treesitter/nvim-treesitter",
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   "nvim-telescope/telescope.nvim",
   {
     'VonHeikemen/lsp-zero.nvim',
@@ -50,7 +50,7 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
     },
   },
-  { 'akinsho/toggleterm.nvim', version = "*", config = true },
+  { 'akinsho/toggleterm.nvim',         version = "*",      config = true },
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
@@ -96,6 +96,9 @@ require("lazy").setup({
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
+      action_keys = {
+        open_tab = { "<c-&>" },
+      }
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
@@ -197,6 +200,8 @@ require("lazy").setup({
   --     "rcarriga/nvim-notify",
   --   }
   -- }
-  , { "ellisonleao/gruvbox.nvim" },
+  ,
+  { "ellisonleao/gruvbox.nvim" },
   { "folke/zen-mode.nvim" },
+  { "catppuccin/nvim",         name = "catppuccin", priority = 1000 }
 }, opts)
