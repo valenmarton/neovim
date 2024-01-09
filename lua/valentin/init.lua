@@ -32,4 +32,3 @@ vim.g.netrw_winsize = 25
 vim.cmd('highlight GitSignsAdd guibg=NONE')
 vim.cmd('highlight GitSignsChange guibg=NONE')
 vim.cmd('highlight GitSignsDelete guibg=NONE')
-require('leap').add_default_mappings()

@@ -22,14 +22,19 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('n', '<leader>ca', function()
     vim.lsp.buf.code_action({ async = false, timeout_ms = 10000 })
   end, opts)
+  vim.keymap.set({ 'n', 'i' }, '<C-h>', function()
+    vim.lsp.buf.signature_help()
+  end)
 
   --TODO: maybe more telescope
-
   -- lsp.set_sign_icons({
-  --   error = '',
-  --   warn = '',
-  --   hint = '',
-  --   info = ''
+  --   error = ' ',
+  --   -- error = '',
+  --   warn = ' ',
+  --   -- warn = '',
+  --   hint = ' ',
+  --   -- hint = ' ',
+  --   info = ' '
   -- })
 end)
 -- (Optional) Configure lua language server for neovim
@@ -109,6 +114,8 @@ lsp.setup()
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 local lspkind = require('lspkind') --only for fancy cmp icons
+local luasnip = require('luasnip')
+require('luasnip.loaders.from_vscode').lazy_load()
 
 cmp.setup({
   mapping = {
@@ -130,7 +137,7 @@ cmp.setup({
     })
   },
   sources = {
-    { name = 'nvim_lsp_signature_help' }, { name = 'nvim_lsp' }, { name = 'buffer' }, { name = 'path' }
+    { name = 'nvim_lsp_signature_help' }, { name = 'nvim_lsp' }, { name = 'buffer' }, { name = 'path' }, { name = 'cmdline', name = 'luasnip' }
   }
 }
 )

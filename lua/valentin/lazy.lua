@@ -12,11 +12,30 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  -- Colorscheme
   {
     "rose-pine/neovim",
+    lazy = false,
+    priority = 1000,
     name = "rose-pine",
+    config = function()
+      vim.cmd([[colorscheme rose-pine]])
+    end
   },
+  { "ellisonleao/gruvbox.nvim" },
+  { "catppuccin/nvim",                 name = "catppuccin", priority = 1000 },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      styles = {
+        keywords = {
+          italic = false
+        }
+      }
+    },
+  },
+  -- Search
   "nvim-telescope/telescope.nvim",
   {
     'VonHeikemen/lsp-zero.nvim',
@@ -28,12 +47,17 @@ require("lazy").setup({
       { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
       -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },     -- Required
-      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'hrsh7th/cmp-nvim-lsp-signature-help' },
-      { 'L3MON4D3/LuaSnip' },     -- Required{'hrsh7th/cmp-buffer'},
-      { 'hrsh7th/cmp-path' },
-      { 'hrsh7th/cmp-buffer' },
+      {
+        'hrsh7th/nvim-cmp',
+        event = "InsertEnter",
+        dependencies =
+        { 'hrsh7th/cmp-nvim-lsp' },
+        { 'hrsh7th/cmp-nvim-lsp-signature-help' },
+        { 'L3MON4D3/LuaSnip' },
+        { 'hrsh7th/cmp-path' },
+        { 'hrsh7th/cmp-buffer' },
+        { 'hrsh7th/cmp-cmdline' },
+      },
     }
   },
   -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
@@ -50,32 +74,25 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
     },
   },
-  { 'akinsho/toggleterm.nvim',         version = "*",      config = true },
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     opts = {}
   },
-  -- TODO: autotag ?
-  { 'machakann/vim-sandwich' }, --minimal surrounding 's{action}{motion}{char}'
-  {
-    "tpope/vim-surround"        --also surrounding with tags '{action}{motion}{char/s}'
-  },
+  { 'machakann/vim-sandwich' },
+  { "tpope/vim-surround" },
   {
     'stevearc/dressing.nvim',
+    event = "VeryLazy",
     opts = {},
   },
   { 'ThePrimeagen/harpoon' },
   { 'mbbill/undotree' },
-  -- TODO: DO I NEED fancy stuff
   {
     "onsails/lspkind.nvim"         -- cmp icons
   },
   { "nvim-lualine/lualine.nvim" }, -- statusbar under
-  {
-    'nvim-tree/nvim-web-devicons'
-  },
-  { 'nvim-telescope/telescope-file-browser.nvim' },
+  { 'nvim-tree/nvim-web-devicons', lazy = true },
   { 'lewis6991/gitsigns.nvim' },
   {
     "folke/todo-comments.nvim",
@@ -99,86 +116,22 @@ require("lazy").setup({
       action_keys = {
         open_tab = { "<c-&>" },
       }
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
-  },
-  -- {
-  --   'svrana/neosolarized.nvim',
-  --   comment_italics = true,
-  --   background_set = false,
-  --   lazy = false
-  -- },
-  {
-    "Tsuzat/NeoSolarized.nvim",
-    name = "neosol",
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      -- vim.cmd [[ colorscheme NeoSolarized ]]
-    end,
-    opts = {
-      transparent = true
     },
   },
   { 'akinsho/bufferline.nvim',  version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
   { 'tjdevries/colorbuddy.nvim' },
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {
-      styles = {
-        keywords = {
-          italic = false
-        }
-      }
-    },
-  },
-  { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false },
-  {
     "ray-x/go.nvim",
+    enabled = false,
     dependencies = { -- optional packages
       "ray-x/guihua.lua",
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
     },
-    -- config = function()
-    --   require("go").setup()
-    -- end,
     event = { "CmdlineEnter" },
     ft = { "go", 'gomod' },
   },
   { "stevearc/oil.nvim" },
-  { "ggandor/leap.nvim" },
-  { "karb94/neoscroll.nvim" },
-  {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    ---@type Flash.Config
-    opts = {},
-    -- stylua: ignore
-    keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },
-      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o",               function() require("flash").remote() end,     desc = "Remote Flash" },
-      {
-        "R",
-        mode = { "o", "x" },
-        function() require("flash").treesitter_search() end,
-        desc =
-        "Treesitter Search"
-      },
-      {
-        "<c-s>",
-        mode = { "c" },
-        function() require("flash").toggle() end,
-        desc =
-        "Toggle Flash Search"
-      },
-    },
-  },
   {
     "nvimdev/lspsaga.nvim",
     dependencies = {
@@ -186,22 +139,11 @@ require("lazy").setup({
       'nvim-tree/nvim-web-devicons'
     }
   },
-  { "lukas-reineke/indent-blankline.nvim" }
-  -- lazy.nvim
-  -- {
-  --   "folke/noice.nvim",
-  --   event = "VeryLazy",
-  --   dependencies = {
-  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-  --     "MunifTanjim/nui.nvim",
-  --     -- OPTIONAL:
-  --     --   `nvim-notify` is only needed, if you want to use the notification view.
-  --     --   If not available, we use `mini` as the fallback
-  --     "rcarriga/nvim-notify",
-  --   }
-  -- }
-  ,
-  { "ellisonleao/gruvbox.nvim" },
+  { "lukas-reineke/indent-blankline.nvim", enabled = false, main = "ibl", opts = { scope = { highlight = highlight } } },
+  -- Utils
   { "folke/zen-mode.nvim" },
-  { "catppuccin/nvim",         name = "catppuccin", priority = 1000 }
+  {
+    "j-hui/fidget.nvim",
+    opts = {}
+  },
 }, opts)
