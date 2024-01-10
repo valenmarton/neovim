@@ -46,4 +46,4 @@ vim.keymap.set("n", "<leader>bd", "<cmd>%bd|e#<cr>", { desc = "Close all buffers
 vim.keymap.set({ "n", "i" }, "<C-s>", "<Esc><CMD>w<CR>")
 vim.keymap.set({ "n", "i" }, "<C-a>", "<Esc>ggVG")
 -- go to prev buffer
-vim.keymap.set("n", "<Tab><Tab>", ":b#<CR>")
+vim.keymap.set("n", "<leader><Tab>", ":b#<CR>")

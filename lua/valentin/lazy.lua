@@ -36,7 +36,7 @@ require("lazy").setup({
     },
   },
   -- Search
-  "nvim-telescope/telescope.nvim",
+  { "nvim-telescope/telescope.nvim" },
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
@@ -47,19 +47,15 @@ require("lazy").setup({
       { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
       -- Autocompletion
-      {
-        'hrsh7th/nvim-cmp',
-        event = "InsertEnter",
-        dependencies =
-        { 'hrsh7th/cmp-nvim-lsp' },
-        { 'hrsh7th/cmp-nvim-lsp-signature-help' },
-        { 'L3MON4D3/LuaSnip' },
-        { 'hrsh7th/cmp-path' },
-        { 'hrsh7th/cmp-buffer' },
-        { 'hrsh7th/cmp-cmdline' },
-      },
     }
   },
+  { 'hrsh7th/nvim-cmp' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/cmp-nvim-lsp-signature-help' },
+  { 'L3MON4D3/LuaSnip' },
+  { 'hrsh7th/cmp-path' },
+  { 'hrsh7th/cmp-buffer' },
+  { 'hrsh7th/cmp-cmdline' },
   -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
   {
     'numToStr/Comment.nvim',
@@ -139,7 +135,7 @@ require("lazy").setup({
       'nvim-tree/nvim-web-devicons'
     }
   },
-  { "lukas-reineke/indent-blankline.nvim", enabled = false, main = "ibl", opts = { scope = { highlight = highlight } } },
+  { "lukas-reineke/indent-blankline.nvim", enabled = true, main = "ibl", opts = { indent = { highlight = highlight } } },
   -- Utils
   { "folke/zen-mode.nvim" },
   {
