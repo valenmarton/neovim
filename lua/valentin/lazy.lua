@@ -52,16 +52,40 @@ require("lazy").setup({
   { 'hrsh7th/nvim-cmp' },
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'hrsh7th/cmp-nvim-lsp-signature-help' },
-  { 'L3MON4D3/LuaSnip' },
+  {
+    'L3MON4D3/LuaSnip',
+    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    build = "make install_jsregexp",
+    -- enabled = false,
+    -- FIX: snippets not working
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      -- config = function()
+      --   require("luasnip.loaders.from_vscode").lazy_load()
+      -- end,
+    },
+  },
   { 'hrsh7th/cmp-path' },
   { 'hrsh7th/cmp-buffer' },
   { 'hrsh7th/cmp-cmdline' },
+  { 'saadparwaiz1/cmp_luasnip' },
   -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
   {
     'numToStr/Comment.nvim',
-    opts = {
-      -- add any options here
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      opts = {
+        enable_autocmd = false,
+      }
     },
+    config = function()
+      require('Comment').setup {
+        pre_hook = function()
+          return vim.bo.commentstring
+        end
+      }
+    end,
   },
   {
     "kdheepak/lazygit.nvim",
@@ -75,8 +99,8 @@ require("lazy").setup({
     event = "InsertEnter",
     opts = {}
   },
-  { 'machakann/vim-sandwich' },
-  { "tpope/vim-surround" },
+  -- { 'machakann/vim-sandwich' },
+  "tpope/vim-surround",
   {
     'stevearc/dressing.nvim',
     event = "VeryLazy",
@@ -90,6 +114,7 @@ require("lazy").setup({
   { "nvim-lualine/lualine.nvim" }, -- statusbar under
   { 'nvim-tree/nvim-web-devicons', lazy = true },
   { 'lewis6991/gitsigns.nvim' },
+  -- TODO:
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -142,4 +167,28 @@ require("lazy").setup({
     "j-hui/fidget.nvim",
     opts = {}
   },
+  {
+    'max397574/better-escape.nvim',
+    opts = {
+      mapping = { "jk", "kj" },   -- a table with mappings to use
+      timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+      -- TODO: not working
+      clear_empty_lines = false,  -- clear line after escaping if there is only whitespace
+    }
+  },
+  {
+    "ggandor/leap.nvim",
+    config = function()
+      require('leap').create_default_mappings()
+    end,
+    opts = {
+
+    }
+  },
+  { "RRethy/vim-illuminate" },
+  { "nvim-telescope/telescope-fzf-native.nvim" },
+  {
+    "windwp/nvim-ts-autotag",
+    opts = {}
+  }
 }, opts)
