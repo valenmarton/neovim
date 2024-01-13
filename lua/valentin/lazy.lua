@@ -102,6 +102,7 @@ require("lazy").setup({
   -- { 'machakann/vim-sandwich' },
   "tpope/vim-surround",
   {
+    -- enabled = false,
     'stevearc/dressing.nvim',
     event = "VeryLazy",
     opts = {},
@@ -160,7 +161,8 @@ require("lazy").setup({
       'nvim-tree/nvim-web-devicons'
     }
   },
-  { "lukas-reineke/indent-blankline.nvim", enabled = true, main = "ibl", opts = { indent = { highlight = highlight } } },
+  { "lukas-reineke/indent-blankline.nvim", enabled = false, main = "ibl",                 opts = {} },
+  { "echasnovski/mini.indentscope",        version = "*",   opts = { draw = { delay = 0 } } },
   -- Utils
   { "folke/zen-mode.nvim" },
   {
