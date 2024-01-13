@@ -18,12 +18,19 @@ require("lazy").setup({
     lazy = false,
     priority = 1000,
     name = "rose-pine",
-    config = function()
-      vim.cmd([[colorscheme rose-pine]])
-    end
+    -- config = function()
+    --   vim.cmd([[colorscheme rose-pine]])
+    -- end
   },
   { "ellisonleao/gruvbox.nvim" },
-  { "catppuccin/nvim",                 name = "catppuccin", priority = 1000 },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    -- config = function()
+    --   vim.cmd([[colorscheme catppuccin]])
+    -- end
+  },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   {
     "folke/tokyonight.nvim",
@@ -110,9 +117,9 @@ require("lazy").setup({
   { 'ThePrimeagen/harpoon' },
   { 'mbbill/undotree' },
   {
-    "onsails/lspkind.nvim"         -- cmp icons
+    "onsails/lspkind.nvim"                          -- cmp icons
   },
-  { "nvim-lualine/lualine.nvim" }, -- statusbar under
+  { "nvim-lualine/lualine.nvim",   enabled = false }, -- statusbar under
   { 'nvim-tree/nvim-web-devicons', lazy = true },
   { 'lewis6991/gitsigns.nvim' },
   -- TODO:
@@ -161,7 +168,7 @@ require("lazy").setup({
       'nvim-tree/nvim-web-devicons'
     }
   },
-  { "lukas-reineke/indent-blankline.nvim", enabled = false, main = "ibl",                 opts = {} },
+  { "lukas-reineke/indent-blankline.nvim", enabled = false, main = "ibl",                   opts = {} },
   { "echasnovski/mini.indentscope",        version = "*",   opts = { draw = { delay = 0 } } },
   -- Utils
   { "folke/zen-mode.nvim" },

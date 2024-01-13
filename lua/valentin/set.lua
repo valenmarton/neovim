@@ -1,4 +1,7 @@
 --TODO: use vim.opt for vim.cmd
+--
+-- no cursor in insert mode
+vim.opt.guicursor = ""
 vim.cmd('set relativenumber')
 vim.cmd('set number')
 
@@ -31,4 +34,6 @@ vim.opt.hlsearch = false
 vim.opt.cursorline = true
 
 vim.opt.title = true
--- vim.opt.cmdheight = 0
+-- vim.opt.cmdheight = 0vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
