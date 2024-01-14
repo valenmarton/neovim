@@ -214,6 +214,7 @@ require("lazy").setup({
   },
   {
     "zbirenbaum/copilot.lua",
+    event = "InsertEnter",
     opts = {
       panel = {
         enabled = true,
@@ -225,10 +226,11 @@ require("lazy").setup({
         auto_trigger = true,
         keymap = {
           accept = "<Del>",
+          next = "<M-Up>",
+          prev = "<M-Down>",
         },
       },
     },
-    event = "InsertEnter"
   },
   {
     "zbirenbaum/copilot-cmp",

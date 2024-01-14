@@ -155,7 +155,7 @@ cmp.setup({
   view = {
     entries = {
       vertical_positioning = "above",
-    }
+    },
   },
   window = {
     -- completion = cmp.config.window.bordered(),
