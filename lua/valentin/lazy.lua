@@ -211,7 +211,7 @@ require("lazy").setup({
     "zbirenbaum/copilot.lua",
     opts = {
       panel = {
-        enabled = false,
+        enabled = true,
         size = 10,
         border = true,
         position = "bottom",
