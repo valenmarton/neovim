@@ -217,7 +217,7 @@ require("lazy").setup({
         position = "bottom",
       },
       suggestion = {
-        auto_trigger = false,
+        auto_trigger = true,
         keymap = {
           accept = "<Del>",
         },
@@ -227,6 +227,7 @@ require("lazy").setup({
   },
   {
     "zbirenbaum/copilot-cmp",
+    enabled = false,
     event = { "InsertEnter", "LspAttach" },
     opts = {
       fix_pairs = true
