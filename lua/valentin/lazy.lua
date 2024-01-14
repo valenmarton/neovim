@@ -225,5 +225,12 @@ require("lazy").setup({
     },
     event = "InsertEnter"
   },
-  { "zbirenbaum/copilot-cmp", opts = {}, config = {} },
+  {
+    "zbirenbaum/copilot-cmp",
+    event = { "InsertEnter", "LspAttach" },
+    opts = {
+      fix_pairs = true
+    },
+    -- config = {}
+  },
 }, opts)
