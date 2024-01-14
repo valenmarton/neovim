@@ -226,8 +226,8 @@ require("lazy").setup({
         auto_trigger = true,
         keymap = {
           accept = "<Del>",
-          next = "<M-Up>",
-          prev = "<M-Down>",
+          next = "<M-Down>",
+          prev = "<M-Up>",
         },
       },
     },
