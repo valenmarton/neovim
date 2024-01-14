@@ -49,6 +49,7 @@ require("lazy").setup({
       }
     },
   },
+
   -- Search
   { "nvim-telescope/telescope.nvim" },
   {
@@ -63,7 +64,11 @@ require("lazy").setup({
       -- Autocompletion
     }
   },
-  { 'hrsh7th/nvim-cmp' },
+  -- WARN: using forked branch for topview cmp suggestions
+  --
+  -- { 'hrsh7th/nvim-cmp' },
+  -- https://github.com/hrsh7th/nvim-cmp/pull/1701
+  { 'llllvvuu/nvim-cmp',                  branch = 'feat/above' },
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'hrsh7th/cmp-nvim-lsp-signature-help' },
   {

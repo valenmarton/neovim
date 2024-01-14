@@ -151,6 +151,16 @@ local has_words_before = function()
 end
 
 cmp.setup({
+  -- WARN: only working on forked branch
+  view = {
+    entries = {
+      vertical_positioning = "above",
+    }
+  },
+  window = {
+    -- completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
+  },
   mapping = {
     -- `Enter` key to confirm completion
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
