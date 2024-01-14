@@ -18,6 +18,13 @@ require("lazy").setup({
     lazy = false,
     priority = 1000,
     name = "rose-pine",
+    opts = {
+      styles = {
+        -- italic = false,
+        transparency = true
+      },
+    },
+    -- this rungs before opts :(
     -- config = function()
     --   vim.cmd([[colorscheme rose-pine]])
     -- end
@@ -117,7 +124,7 @@ require("lazy").setup({
   { 'ThePrimeagen/harpoon' },
   { 'mbbill/undotree' },
   {
-    "onsails/lspkind.nvim"                          -- cmp icons
+    "onsails/lspkind.nvim"                            -- cmp icons
   },
   { "nvim-lualine/lualine.nvim",   enabled = false }, -- statusbar under
   { 'nvim-tree/nvim-web-devicons', lazy = true },
@@ -199,5 +206,24 @@ require("lazy").setup({
   {
     "windwp/nvim-ts-autotag",
     opts = {}
-  }
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    opts = {
+      panel = {
+        enabled = false,
+        size = 10,
+        border = true,
+        position = "bottom",
+      },
+      suggestion = {
+        auto_trigger = false,
+        keymap = {
+          accept = "<Del>",
+        },
+      },
+    },
+    event = "InsertEnter"
+  },
+  { "zbirenbaum/copilot-cmp", opts = {}, config = {} },
 }, opts)

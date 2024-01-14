@@ -1,4 +1,6 @@
 local lsp = require('lsp-zero').preset({})
+-- local lsp = require('lspconfig')
+
 
 lsp.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
@@ -114,9 +116,39 @@ lsp.setup()
 -- You need to setup `cmp` after lsp-zero
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
-local lspkind = require('lspkind') --only for fancy cmp icons
--- local luasnip = require('luasnip')
--- require('luasnip.loaders.from_vscode').lazy_load()
+local lspkind = require('lspkind')
+lspkind.init({
+  symbol_map = {
+    Text = '',
+    Method = 'ƒ',
+    Function = '',
+    Constructor = '',
+    Variable = '',
+    Class = '',
+    Interface = 'ﰮ',
+    Module = '',
+    Property = '',
+    Unit = '',
+    Value = '',
+    Enum = '了',
+    Keyword = '',
+    Snippet = '﬌',
+    Color = '',
+    File = '',
+    Folder = '',
+    EnumMember = '',
+    Constant = '',
+    Struct = '',
+    Copilot = "",
+  }
+})
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+
+local has_words_before = function()
+  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
+end
 
 cmp.setup({
   mapping = {
@@ -127,24 +159,35 @@ cmp.setup({
     -- Navigate between snippet placeholder
     ['<C-f>'] = cmp_action.luasnip_jump_forward(),
     ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-    ['<Tab>'] = cmp_action.luasnip_supertab(),
+    -- ['<Tab>'] = cmp_action.luasnip_supertab(),
+    ["<Tab>"] = vim.schedule_wrap(function(fallback)
+      if cmp.visible() and has_words_before() then
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+      else
+        fallback()
+      end
+    end),
     ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
     ['<C-j>'] = cmp_action.luasnip_supertab(),
     ['<C-k>'] = cmp_action.luasnip_shift_supertab(),
   },
-  formatting = {
-    format = lspkind.cmp_format({
-      mode = 'symbol_text',
-      preset = 'codicons'
-    })
-  },
+  -- WARN: ICONS ARE SET ABOVE
+  --
+  -- formatting = {
+  --   format = lspkind.cmp_format({
+  --     mode = 'symbol_text',
+  --     preset = 'codicons',
+  --     max_width = 50,
+  --     symbol_map = { Copilot = "" }
+  --   })
+  -- },
   snippet = {
     expand = function(args)
       require 'luasnip'.lsp_expand(args.body)
     end
   },
   sources = {
-    { name = 'nvim_lsp_signature_help' }, { name = 'nvim_lsp' }, { name = 'buffer' }, { name = 'path' }, { name = 'cmdline' }, { name = 'luasnip' }
+    { name = 'nvim_lsp_signature_help' }, { name = 'nvim_lsp' }, { name = 'buffer' }, { name = 'path' }, { name = 'cmdline' }, { name = 'luasnip' }, { name = 'copilot' }
   }
 })
 

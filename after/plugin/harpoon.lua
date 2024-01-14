@@ -30,5 +30,5 @@ vim.keymap.set("n", "<C-4>", function() ui.nav_file(4) end)
 vim.keymap.set("n", "<C-5>", function() ui.nav_file(5) end)
 vim.keymap.set("n", "<C-6>", function() ui.nav_file(6) end)
 
--- load here to get catppuccin on harpoon theme
+-- load colorscheme here to use the same harpoon theme
 vim.cmd('colorscheme rose-pine')
