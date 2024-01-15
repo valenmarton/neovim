@@ -152,15 +152,23 @@ end
 
 cmp.setup({
   -- WARN: only working on forked branch
-  view = {
-    entries = {
-      vertical_positioning = "below",
-    },
-  },
-  window = {
-    -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
-  },
+  -- view = {
+  --   entries = {
+  --     vertical_positioning = "below",
+  --   },
+  -- },
+  -- window = {
+  -- completion = cmp.config.window.bordered(),
+  -- documentation = cmp.config.window.bordered(),
+  -- },
+  -- window = {
+  --   completion = {
+  --     winhighlight = "Normal:Pmenu",
+  --   },
+  --   documentation = {
+  --     winhighlight = "Normal:Pmenu",
+  --   }
+  -- },
   mapping = {
     -- `Enter` key to confirm completion
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
@@ -224,19 +232,19 @@ cmp.setup({
 --TODO: cmdline with ctrl j-k, nvim-autotag?, angular snippets
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ '/', '?' }, {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  }
-})
+-- cmp.setup.cmdline({ '/', '?' }, {
+--   mapping = cmp.mapping.preset.cmdline(),
+--   sources = {
+--     { name = 'buffer' }
+--   }
+-- })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
-})
+-- cmp.setup.cmdline(':', {
+--   mapping = cmp.mapping.preset.cmdline(),
+--   sources = cmp.config.sources({
+--     { name = 'path' }
+--   }, {
+--     { name = 'cmdline' }
+--   })
+-- })
