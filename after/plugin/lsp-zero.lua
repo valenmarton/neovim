@@ -154,7 +154,7 @@ cmp.setup({
   -- WARN: only working on forked branch
   view = {
     entries = {
-      vertical_positioning = "above",
+      vertical_positioning = "below",
     },
   },
   window = {

@@ -19,7 +19,7 @@ vim.cmd('set shell=/bin/zsh')
 -- vim.cmd('set tabstop=2')
 -- vim.cmd('set shiftwidth=2')
 
-vim.opt.scrolloff = 999 --10 my previous preset (is 999 - cursor in the middle every time - useful?)
+vim.opt.scrolloff = 8 --10 my previous preset (is 999 - cursor in the middle every time - useful?)
 vim.opt.signcolumn = "yes"
 vim.opt.incsearch = true
 
