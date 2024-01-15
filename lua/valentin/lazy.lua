@@ -20,8 +20,8 @@ require("lazy").setup({
     name = "rose-pine",
     opts = {
       styles = {
-        -- italic = false,
-        transparency = true
+        italic = false,
+        -- transparency = true
       },
     },
     -- this rungs before opts :(
@@ -66,9 +66,9 @@ require("lazy").setup({
   },
   -- WARN: using forked branch for topview cmp suggestions
   --
-  -- { 'hrsh7th/nvim-cmp' },
   -- https://github.com/hrsh7th/nvim-cmp/pull/1701
-  { 'llllvvuu/nvim-cmp',                  branch = 'feat/above' },
+  -- { 'llllvvuu/nvim-cmp',                  branch = 'feat/above' },
+  { 'hrsh7th/nvim-cmp' },
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'hrsh7th/cmp-nvim-lsp-signature-help' },
   {
@@ -77,7 +77,6 @@ require("lazy").setup({
     -- install jsregexp (optional!).
     build = "make install_jsregexp",
     -- enabled = false,
-    -- FIX: snippets not working
     dependencies = {
       "rafamadriz/friendly-snippets",
       -- config = function()
@@ -85,6 +84,11 @@ require("lazy").setup({
       -- end,
     },
   },
+  { 'hrsh7th/cmp-nvim-lua' },
+  { 'hrsh7th/cmp-path' },
+  { 'hrsh7th/cmp-buffer' },
+  { 'hrsh7th/cmp-cmdline' },
+  { 'saadparwaiz1/cmp_luasnip' },
   { 'hrsh7th/cmp-path' },
   { 'hrsh7th/cmp-buffer' },
   { 'hrsh7th/cmp-cmdline' },

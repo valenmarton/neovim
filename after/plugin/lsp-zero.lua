@@ -204,12 +204,12 @@ cmp.setup({
   -- WARN: ICONS ARE SET ABOVE
   --
   formatting = {
-    format = lspkind.cmp_format({
-      -- mode = 'symbol_text',
-      -- preset = 'codicons',
-      -- max_width = 50,
-      -- symbol_map = { Copilot = "" }
-    })
+    -- format = lspkind.cmp_format({
+    -- mode = 'symbol_text',
+    -- preset = 'codicons',
+    -- max_width = 50,
+    -- symbol_map = { Copilot = "" }
+    -- })
   },
   snippet = {
     expand = function(args)
@@ -217,7 +217,7 @@ cmp.setup({
     end
   },
   sources = {
-    { name = 'nvim_lsp_signature_help' }, { name = 'nvim_lsp' }, { name = 'buffer' }, { name = 'path' }, { name = 'cmdline' }, { name = 'luasnip' }, { name = 'copilot' }
+    { name = 'nvim_lsp_signature_help' }, { name = 'nvim_lsp' }, { name = 'buffer' }, { name = 'path' }, { name = 'luasnip' }, { name = 'copilot' }, { name = 'nvim_lua' },
   }
 })
 
