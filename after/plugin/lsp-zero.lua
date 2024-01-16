@@ -116,32 +116,32 @@ lsp.setup()
 -- You need to setup `cmp` after lsp-zero
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
-local lspkind = require('lspkind')
-lspkind.init({
-  symbol_map = {
-    Text = '',
-    Method = 'ƒ',
-    Function = '',
-    Constructor = '',
-    Variable = '',
-    Class = '',
-    Interface = 'ﰮ',
-    Module = '',
-    Property = '',
-    Unit = '',
-    Value = '',
-    Enum = '了',
-    Keyword = '',
-    Snippet = '﬌',
-    Color = '',
-    File = '',
-    Folder = '',
-    EnumMember = '',
-    Constant = '',
-    Struct = '',
-    Copilot = "",
-  }
-})
+-- local lspkind = require('lspkind')
+-- lspkind.init({
+--   symbol_map = {
+--     Text = '',
+--     Method = 'ƒ',
+--     Function = '',
+--     Constructor = '',
+--     Variable = '',
+--     Class = '',
+--     Interface = 'ﰮ',
+--     Module = '',
+--     Property = '',
+--     Unit = '',
+--     Value = '',
+--     Enum = '了',
+--     Keyword = '',
+--     Snippet = '﬌',
+--     Color = '',
+--     File = '',
+--     Folder = '',
+--     EnumMember = '',
+--     Constant = '',
+--     Struct = '',
+--     Copilot = "",
+--   }
+-- })
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
 local has_words_before = function()

@@ -125,15 +125,16 @@ require("lazy").setup({
   -- { 'machakann/vim-sandwich' },
   "tpope/vim-surround",
   {
-    -- enabled = false,
     'stevearc/dressing.nvim',
+    enabled = false,
     event = "VeryLazy",
     opts = {},
   },
   { 'ThePrimeagen/harpoon' },
   { 'mbbill/undotree' },
   {
-    "onsails/lspkind.nvim"                            -- cmp icons
+    "onsails/lspkind.nvim",
+    enabled = false                                   -- cmp icons
   },
   { "nvim-lualine/lualine.nvim",   enabled = false }, -- statusbar under
   { 'nvim-tree/nvim-web-devicons', lazy = true },
@@ -163,8 +164,8 @@ require("lazy").setup({
       }
     },
   },
-  { 'akinsho/bufferline.nvim',  version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
-  { 'tjdevries/colorbuddy.nvim' },
+  { 'akinsho/bufferline.nvim',   version = "*",  dependencies = 'nvim-tree/nvim-web-devicons', enabled = false },
+  { 'tjdevries/colorbuddy.nvim', enabled = false },
   {
     "ray-x/go.nvim",
     enabled = false,
@@ -203,6 +204,7 @@ require("lazy").setup({
   },
   {
     "ggandor/leap.nvim",
+    enabled = false,
     config = function()
       require('leap').create_default_mappings()
     end,
