@@ -1,7 +1,6 @@
 local lsp = require('lsp-zero').preset({})
 -- local lsp = require('lspconfig')
 
-
 lsp.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
@@ -14,9 +13,6 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set({ 'n', 'x' }, '<leader>cf', function() --maybe gf is better
     vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
   end, opts)
-  vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
-  vim.keymap.set('n', 'gi', '<cmd>Telescope lsp_definitions<cr>', opts)
-  vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {})
   vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
   vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
   vim.keymap.set('n', '<leader>rn', function() --rename symbol
@@ -59,12 +55,17 @@ require('lspconfig').tsserver.setup({
       insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = false,
       trimTrailingWhitespace = true,
     },
+    suggest = {
+      placeholder = false,
+      completeFunctionCalls = false
+    }
   },
   -- FIX: how does this work
+  -- TODO: disable completion on parameter insert
   settings = {
-    completions = {
-      completeFunctionCalls = true
-    },
+    -- completions = {
+    --   completeFunctionCalls = true
+    -- },
     preferences = {
       quotePreference = "single",
       importModuleSpecifier = "relative"
@@ -116,32 +117,32 @@ lsp.setup()
 -- You need to setup `cmp` after lsp-zero
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
--- local lspkind = require('lspkind')
--- lspkind.init({
---   symbol_map = {
---     Text = '',
---     Method = 'ƒ',
---     Function = '',
---     Constructor = '',
---     Variable = '',
---     Class = '',
---     Interface = 'ﰮ',
---     Module = '',
---     Property = '',
---     Unit = '',
---     Value = '',
---     Enum = '了',
---     Keyword = '',
---     Snippet = '﬌',
---     Color = '',
---     File = '',
---     Folder = '',
---     EnumMember = '',
---     Constant = '',
---     Struct = '',
---     Copilot = "",
---   }
--- })
+local lspkind = require('lspkind')
+lspkind.init({
+  symbol_map = {
+    Text = '',
+    Method = 'ƒ',
+    Function = '',
+    Constructor = '',
+    Variable = '',
+    Class = '',
+    Interface = 'ﰮ',
+    Module = '',
+    Property = '',
+    Unit = '',
+    Value = '',
+    Enum = '了',
+    Keyword = '',
+    Snippet = '﬌',
+    Color = '',
+    File = '',
+    Folder = '',
+    EnumMember = '',
+    Constant = '',
+    Struct = '',
+    Copilot = "",
+  }
+})
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
 local has_words_before = function()
@@ -151,24 +152,6 @@ local has_words_before = function()
 end
 
 cmp.setup({
-  -- WARN: only working on forked branch
-  -- view = {
-  --   entries = {
-  --     vertical_positioning = "below",
-  --   },
-  -- },
-  -- window = {
-  -- completion = cmp.config.window.bordered(),
-  -- documentation = cmp.config.window.bordered(),
-  -- },
-  -- window = {
-  --   completion = {
-  --     winhighlight = "Normal:Pmenu",
-  --   },
-  --   documentation = {
-  --     winhighlight = "Normal:Pmenu",
-  --   }
-  -- },
   mapping = {
     -- `Enter` key to confirm completion
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
@@ -186,8 +169,8 @@ cmp.setup({
       end
     end),
     ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-    ['<C-j>'] = cmp_action.luasnip_supertab(),
-    ['<C-k>'] = cmp_action.luasnip_shift_supertab(),
+    -- ['<C-j>'] = cmp_action.luasnip_supertab(),
+    -- ['<C-k>'] = cmp_action.luasnip_shift_supertab(),
   },
   --WARN: only for copilot
   --
@@ -212,12 +195,14 @@ cmp.setup({
   -- WARN: ICONS ARE SET ABOVE
   --
   formatting = {
-    -- format = lspkind.cmp_format({
-    -- mode = 'symbol_text',
-    -- preset = 'codicons',
-    -- max_width = 50,
-    -- symbol_map = { Copilot = "" }
-    -- })
+    format = lspkind.cmp_format(
+    -- {
+    --   mode = 'symbol_text',
+    --   preset = 'codicons',
+    --   max_width = 50,
+    --   symbol_map = { Copilot = "" }
+    -- }
+    )
   },
   snippet = {
     expand = function(args)

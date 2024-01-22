@@ -17,8 +17,6 @@ vim.cmd([[
  augroup END
  ]])
 
--- vim.cmd('cd /Users/valentinmarton/Development/')
-
 require("valentin.set")
 require("valentin.remap")
 require("valentin.lazy")

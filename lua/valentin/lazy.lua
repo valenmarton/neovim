@@ -20,7 +20,7 @@ require("lazy").setup({
     name = "rose-pine",
     opts = {
       styles = {
-        italic = false,
+        -- italic = false,
         -- transparency = true
       },
     },
@@ -68,9 +68,6 @@ require("lazy").setup({
   --
   -- https://github.com/hrsh7th/nvim-cmp/pull/1701
   -- { 'llllvvuu/nvim-cmp',                  branch = 'feat/above' },
-  { 'hrsh7th/nvim-cmp' },
-  { 'hrsh7th/cmp-nvim-lsp' },
-  { 'hrsh7th/cmp-nvim-lsp-signature-help' },
   {
     'L3MON4D3/LuaSnip',
     version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
@@ -84,6 +81,9 @@ require("lazy").setup({
       -- end,
     },
   },
+  { 'hrsh7th/nvim-cmp' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  -- { 'hrsh7th/cmp-nvim-lsp-signature-help' },
   { 'hrsh7th/cmp-nvim-lua' },
   { 'hrsh7th/cmp-path' },
   { 'hrsh7th/cmp-buffer' },
@@ -119,6 +119,7 @@ require("lazy").setup({
   },
   {
     'windwp/nvim-autopairs',
+    enabled = false,
     event = "InsertEnter",
     opts = {}
   },
@@ -126,7 +127,7 @@ require("lazy").setup({
   "tpope/vim-surround",
   {
     'stevearc/dressing.nvim',
-    enabled = false,
+    enabled = true,
     event = "VeryLazy",
     opts = {},
   },
@@ -134,9 +135,9 @@ require("lazy").setup({
   { 'mbbill/undotree' },
   {
     "onsails/lspkind.nvim",
-    enabled = false                                   -- cmp icons
+    enabled = true,                                  -- cmp icons
   },
-  { "nvim-lualine/lualine.nvim",   enabled = false }, -- statusbar under
+  { "nvim-lualine/lualine.nvim",   enabled = true }, -- statusbar under
   { 'nvim-tree/nvim-web-devicons', lazy = true },
   { 'lewis6991/gitsigns.nvim' },
   -- TODO:
@@ -185,8 +186,8 @@ require("lazy").setup({
       'nvim-tree/nvim-web-devicons'
     }
   },
-  { "lukas-reineke/indent-blankline.nvim", enabled = false, main = "ibl",                   opts = {} },
-  { "echasnovski/mini.indentscope",        version = "*",   opts = { draw = { delay = 0 } } },
+  { "lukas-reineke/indent-blankline.nvim", enabled = true,  main = "ibl",  opts = {} },
+  { "echasnovski/mini.indentscope",        enabled = false, version = "*", opts = { draw = { delay = 0 } } },
   -- Utils
   { "folke/zen-mode.nvim" },
   {
@@ -212,7 +213,7 @@ require("lazy").setup({
 
     }
   },
-  { "RRethy/vim-illuminate" },
+  { "RRethy/vim-illuminate",                   enabled = false },
   { "nvim-telescope/telescope-fzf-native.nvim" },
   {
     "windwp/nvim-ts-autotag",
@@ -232,8 +233,10 @@ require("lazy").setup({
         auto_trigger = true,
         keymap = {
           accept = "<Del>",
-          next = "<M-Down>",
-          prev = "<M-Up>",
+          next = "<S-Down>",
+          prev = "<S-Up>",
+          accept_word = "<S-Del>",
+          dismiss = "<C-Del>",
         },
       },
     },
@@ -247,4 +250,7 @@ require("lazy").setup({
     },
     -- config = {}
   },
+  { "ThePrimeagen/vim-be-good" },
+  { "HiPhish/rainbow-delimiters.nvim" },
+  { "akinsho/toggleterm.nvim" },
 }, opts)
