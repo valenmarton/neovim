@@ -253,4 +253,8 @@ require("lazy").setup({
   { "ThePrimeagen/vim-be-good" },
   { "HiPhish/rainbow-delimiters.nvim" },
   { "akinsho/toggleterm.nvim" },
+  {
+    'stevearc/conform.nvim',
+    opts = {},
+  },
 }, opts)
