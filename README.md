@@ -1,6 +1,9 @@
 # neovim
 
+FAST KEY REPEAT RATE with SHORT DELAY UNTIL REPEAT
+
 <!-- iTerm2 (30% opacity) -->
+
 iTerm2 (30% opacity / 30% blur)
 or kitty
 
@@ -11,6 +14,7 @@ https://medium.com/@satriajanaka09/setup-zsh-oh-my-zsh-powerlevel10k-on-ubuntu-2
 installed nvim plugin binary dependencies
 
 added a tmux theme:
+
 - https://www.trackawesomelist.com/rothgar/awesome-tmux/readme/
 
 steps:
@@ -18,4 +22,3 @@ steps:
 - run '~/.tmux/plugins/tpm/tpm'
 - set -g @plugin 'egel/tmux-gruvbox'
 - set -g @tmux-gruvbox 'dark' # or 'light'
-
