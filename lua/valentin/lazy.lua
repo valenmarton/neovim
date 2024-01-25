@@ -57,6 +57,39 @@ require("lazy").setup({
 			},
 		},
 	},
+	{
+		"bluz71/vim-nightfly-colors",
+		opts = {
+			-- nightflyCursorColor = 1,
+		},
+		config = function()
+			vim.g.nightflyCursorColor = true
+			-- vim.g.nightflyTransparent = true
+			vim.g.nightflyWinSeparator = 2
+			vim.g.nightflyVirtualTextColor = true
+			-- vim.g.nightflyUnderlineMatchParen = true
+			vim.g.nightflyTerminalColors = true
+			vim.g.nightflyNormalFloat = true
+			-- Lua initialization file
+			vim.opt.fillchars = {
+				horiz = "━",
+				horizup = "┻",
+				horizdown = "┳",
+				vert = "┃",
+				vertleft = "┫",
+				vertright = "┣",
+				verthoriz = "╋",
+			}
+			local custom_highlight = vim.api.nvim_create_augroup("CustomHighlight", {})
+			vim.api.nvim_create_autocmd("ColorScheme", {
+				pattern = "nightfly",
+				callback = function()
+					vim.api.nvim_set_hl(0, "Function", { fg = "#82aaff", bold = true })
+				end,
+				group = custom_highlight,
+			})
+		end,
+	},
 
 	-- Search
 	{ "nvim-telescope/telescope.nvim" },
