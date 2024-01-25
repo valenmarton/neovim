@@ -229,7 +229,20 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons",
 		},
 	},
-	{ "lukas-reineke/indent-blankline.nvim", enabled = true, main = "ibl", opts = {} },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		enabled = true,
+		main = "ibl",
+		opts = {
+			indent = {
+				char = "▏", -- This is a slightly thinner char than the default one, check :help ibl.config.indent.char
+			},
+			scope = {
+				show_start = false,
+				show_end = false,
+			},
+		},
+	},
 	{ "echasnovski/mini.indentscope", enabled = false, version = "*", opts = { draw = { delay = 0 } } },
 	-- Utils
 	{ "folke/zen-mode.nvim" },
