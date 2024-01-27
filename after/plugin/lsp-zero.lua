@@ -172,10 +172,10 @@ local winhighlight = {
 --
 cmp.setup({
 	-- for nightfly colorscheme
-	window = {
-		completion = cmp.config.window.bordered(winhighlight),
-		documentation = cmp.config.window.bordered(winhighlight),
-	},
+	-- window = {
+	-- 	completion = cmp.config.window.bordered(winhighlight),
+	-- 	documentation = cmp.config.window.bordered(winhighlight),
+	-- },
 	mapping = {
 		-- `Enter` key to confirm completion
 		["<CR>"] = cmp.mapping.confirm({ select = false }),

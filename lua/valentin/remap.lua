@@ -50,5 +50,5 @@ vim.keymap.set("n", "<Up>", "{")
 -- vim.keymap.set({ "n", "i" }, "<S-Up>", "(")
 
 vim.keymap.set("n", "<leader><Tab>", ":b#<CR>")
-vim.keymap.set("n", "<C-e>", "<cmd>bp<CR>")
-vim.keymap.set("n", "<C-y>", "<cmd>bn<CR>")
+-- vim.keymap.set("n", "<C-e>", "<cmd>bp<CR>")
+-- vim.keymap.set("n", "<C-y>", "<cmd>bn<CR>")

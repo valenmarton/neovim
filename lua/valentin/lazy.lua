@@ -160,7 +160,7 @@ require("lazy").setup({
 	},
 	{
 		"windwp/nvim-autopairs",
-		enabled = false,
+		enabled = true,
 		event = "InsertEnter",
 		opts = {},
 	},
@@ -203,6 +203,7 @@ require("lazy").setup({
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
+			mode = "document_diagnostics",
 			action_keys = {
 				open_tab = { "<c-&>" },
 			},
