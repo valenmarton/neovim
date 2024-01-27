@@ -25,9 +25,10 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>ca", function()
 		vim.lsp.buf.code_action({ async = false, timeout_ms = 10000 })
 	end, opts)
-	vim.keymap.set({ "n", "i" }, "<C-h>", function()
+	--TODO: C-j also opens cmp
+	vim.keymap.set({ "i", "n" }, "<C-h>", function()
 		vim.lsp.buf.signature_help()
-	end)
+	end, opts)
 
 	--TODO: maybe more telescope
 	-- lsp.set_sign_icons({
@@ -93,6 +94,7 @@ require("lspconfig").tsserver.setup({
 		},
 	},
 })
+
 -- require('lspconfig').tsserver.setup({
 --   on_attach = function(client, bufnr)
 --     print("hello tserver")
@@ -119,8 +121,7 @@ require("lspconfig").html.setup({
 lsp.setup()
 
 -- You need to setup `cmp` after lsp-zero
-local cmp = require("cmp")
-local cmp_action = require("lsp-zero").cmp_action()
+-- local cmp = require("cmp")
 local lspkind = require("lspkind")
 
 lspkind.init({
@@ -159,17 +160,19 @@ local has_words_before = function()
 end
 
 -- for nightfly colorscheme
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-	border = "single",
-})
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signatureHelp, {
-	border = "single",
-})
-vim.diagnostic.config({ float = { border = "single" } })
-local winhighlight = {
-	winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
-}
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+-- 	border = "single",
+-- })
+-- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signatureHelp, {
+-- 	border = "single",
+-- })
+-- vim.diagnostic.config({ float = { border = "single" } })
+-- local winhighlight = {
+-- 	winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+-- }
 --
+local cmp = require("cmp")
+local cmp_action = require("lsp-zero").cmp_action()
 cmp.setup({
 	-- for nightfly colorscheme
 	-- window = {
@@ -234,8 +237,8 @@ cmp.setup({
 		end,
 	},
 	sources = {
-		{ name = "nvim_lsp_signature_help" },
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lsp_signature_help" },
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "luasnip" },

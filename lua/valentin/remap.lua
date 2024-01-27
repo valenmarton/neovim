@@ -48,7 +48,10 @@ vim.keymap.set("n", "<Up>", "{")
 
 -- vim.keymap.set({ "n", "i" }, "<S-Down>", ")")
 -- vim.keymap.set({ "n", "i" }, "<S-Up>", "(")
+-- telecope neovim
 
 vim.keymap.set("n", "<leader><Tab>", ":b#<CR>")
 -- vim.keymap.set("n", "<C-e>", "<cmd>bp<CR>")
 -- vim.keymap.set("n", "<C-y>", "<cmd>bn<CR>")
+--
+vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { silent = true })

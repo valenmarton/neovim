@@ -124,15 +124,10 @@ require("lazy").setup({
 	},
 	{ "hrsh7th/nvim-cmp" },
 	{ "hrsh7th/cmp-nvim-lsp" },
-	-- { 'hrsh7th/cmp-nvim-lsp-signature-help' },
-	{ "hrsh7th/cmp-nvim-lua" },
+	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 	{ "hrsh7th/cmp-path" },
 	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-cmdline" },
-	{ "saadparwaiz1/cmp_luasnip" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-cmdline" },
+	-- { "hrsh7th/cmp-cmdline" },
 	{ "saadparwaiz1/cmp_luasnip" },
 	-- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
 	{
@@ -325,5 +320,15 @@ require("lazy").setup({
     { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   },
+	},
+	{
+		"junegunn/limelight.vim",
+		config = function()
+			vim.g.limelight_conceal_ctermfg = "gray"
+			vim.g.limelight_conceal_ctermfg = 240
+			vim.g.limelight_conceal_guifg = "DarkGray"
+			vim.g.limelight_conceal_guifg = "#777777"
+			vim.keymap.set("n", "<leader>l", "<cmd>Limelight!!<cr>", { noremap = true, silent = true })
+		end,
 	},
 }, opts)
