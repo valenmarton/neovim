@@ -28,7 +28,7 @@ require("lazy").setup({
 		name = "rose-pine",
 		opts = {
 			styles = {
-				italic = false,
+				-- italic = false,
 				transparency = true,
 			},
 		},
@@ -201,6 +201,17 @@ require("lazy").setup({
 			mode = "document_diagnostics",
 			action_keys = {
 				open_tab = { "<c-&>" },
+			},
+			fold_open = "󰁃", -- icon used for open folds
+			fold_closed = "",
+			icons = true,
+			signs = {
+				-- icons / text used for a diagnostic
+				error = "E:",
+				warning = "W:",
+				hint = "H:",
+				information = "I:",
+				other = "O:",
 			},
 		},
 	},

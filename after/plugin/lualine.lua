@@ -1,7 +1,10 @@
 require("lualine").setup({
 	-- options = { theme = 'solarized_dark' },
 	options = {
-		component_separators = "|",
+		component_separators = "",
+		-- component_separators = " ",
+		-- component_separators = "│",
+		-- section_separators = "",
 		section_separators = { left = "", right = "" },
 		icons_enabled = true,
 	},
@@ -18,18 +21,38 @@ require("lualine").setup({
 		lualine_b = {
 			{
 				"branch",
-				"diff",
-				"diagnostics",
-				icon = " ",
-				-- color = { gui = "bold" },
-				-- color = { fg = "#a9a1e1", gui = "bold" },
+				icons_enabled = false,
+				fmt = function(str)
+					-- return "    " .. str
+					-- return str .. "   "
+					return " " .. str
+					-- return "  " .. str
+				end,
 			},
+			"diff",
+			-- "diagnostics",
 		},
 		lualine_c = {
 			{
 				"filename",
 				path = 1,
 				color = { gui = "bold" },
+				fmt = function(str)
+					-- print(vim.api.nvim_get_mode()["mode"])
+					-- return str .. "   "
+					-- return str .. "  "
+					return str
+				end,
+				-- symbols = {
+				-- 	modified = " ", -- Text to show when the file is modified.
+				-- 	readonly = "[-]", -- Text to show when the file is non-modifiable or readonly.
+				-- 	unnamed = "[No Name]", -- Text to show for unnamed buffers.
+				-- 	newfile = "[New]", -- Text to show for newly created file before first write
+				-- },
+			},
+			{
+				"diagnostics",
+				symbols = { error = "E:", warn = "W:", info = "I:", hint = "H:" },
 			},
 		},
 		lualine_x = {
