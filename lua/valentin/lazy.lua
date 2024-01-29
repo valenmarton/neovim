@@ -28,7 +28,7 @@ require("lazy").setup({
 		name = "rose-pine",
 		opts = {
 			styles = {
-				-- italic = false,
+				italic = false,
 				transparency = true,
 			},
 		},

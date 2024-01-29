@@ -5,6 +5,21 @@ require("lualine").setup({
 		section_separators = { left = "", right = "" },
 	},
 	sections = {
+		lualine_a = {
+			{
+				"mode",
+				fmt = function(str)
+					return " " .. str
+				end,
+			},
+		},
+		lualine_b = {
+			{
+				"branch",
+				icon = " ",
+				-- color = { fg = "#a9a1e1", gui = "bold" },
+			},
+		},
 		lualine_c = {
 			{
 				"filename",
