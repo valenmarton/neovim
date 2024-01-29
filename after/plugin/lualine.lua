@@ -3,6 +3,7 @@ require("lualine").setup({
 	options = {
 		component_separators = "|",
 		section_separators = { left = "", right = "" },
+		icons_enabled = true,
 	},
 	sections = {
 		lualine_a = {
@@ -11,12 +12,16 @@ require("lualine").setup({
 				fmt = function(str)
 					return " " .. str
 				end,
+				-- color = { gui = "" },
 			},
 		},
 		lualine_b = {
 			{
 				"branch",
+				"diff",
+				"diagnostics",
 				icon = " ",
+				-- color = { gui = "bold" },
 				-- color = { fg = "#a9a1e1", gui = "bold" },
 			},
 		},
@@ -24,6 +29,7 @@ require("lualine").setup({
 			{
 				"filename",
 				path = 1,
+				color = { gui = "bold" },
 			},
 		},
 		lualine_x = {
