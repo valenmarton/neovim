@@ -28,14 +28,14 @@ require("lazy").setup({
 		name = "rose-pine",
 		opts = {
 			styles = {
-				-- italic = false,
+				italic = false,
 				transparency = true,
 			},
 		},
-		-- this rungs before opts :(
+		-- this runs before opts :(
 		-- config = function()
-		--   vim.cmd([[colorscheme rose-pine]])
-		-- end
+		-- 	vim.cmd([[colorscheme rose-pine]])
+		-- end,
 	},
 	{ "ellisonleao/gruvbox.nvim" },
 	{
@@ -167,13 +167,13 @@ require("lazy").setup({
 		event = "VeryLazy",
 		opts = {},
 	},
-	{ "ThePrimeagen/harpoon" },
-	{ "mbbill/undotree" },
+	{ "ThePrimeagen/harpoon", enabled = true, opts = {} },
+	{ "mbbill/undotree", enabled = false },
 	{
 		"onsails/lspkind.nvim",
 		enabled = true, -- cmp icons
 	},
-	{ "nvim-lualine/lualine.nvim", enabled = true }, -- statusbar under
+	{ "nvim-lualine/lualine.nvim", enabled = false }, -- statusbar under
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	{ "lewis6991/gitsigns.nvim" },
 	-- TODO:
@@ -238,7 +238,7 @@ require("lazy").setup({
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		enabled = true,
+		enabled = false,
 		main = "ibl",
 		opts = {
 			indent = {
@@ -322,7 +322,6 @@ require("lazy").setup({
 		"folke/flash.nvim",
 		enabled = false,
 		event = "VeryLazy",
-		---@type Flash.Config
 		opts = {},
   -- stylua: ignore
   keys = {
@@ -349,4 +348,13 @@ require("lazy").setup({
 	{ "tpope/vim-fugitive" },
 	{ "vimwiki/vimwiki" },
 	-- { "wellle/context.vim" },
+	{
+		"nvim-tree/nvim-tree.lua",
+		event = "VeryLazy",
+		opts = {},
+		keys = {
+			{ "<leader>e", mode = { "n" }, "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true } },
+			{ "n", "<leader>E", "<cmd>NvimTreeFindFile<cr>", { noremap = true, silent = true } },
+		},
+	},
 }, {})

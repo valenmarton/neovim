@@ -1,5 +1,5 @@
 require("harpoon").setup({
-	tabline = true,
+	tabline = false,
 })
 
 local mark = require("harpoon.mark")
@@ -26,14 +26,14 @@ end)
 vim.keymap.set("n", "<leader>6", function()
 	ui.nav_file(6)
 end)
-
-vim.keymap.set("n", "<C-e>", function()
-	ui.nav_prev()
-end)
-
-vim.keymap.set("n", "<C-y>", function()
-	ui.nav_next()
-end)
-
--- load colorscheme here to use the same harpoon theme
-vim.cmd("colorscheme rose-pine")
+--
+-- vim.keymap.set("n", "<C-e>", function()
+-- 	ui.nav_prev()
+-- end)
+--
+-- vim.keymap.set("n", "<C-y>", function()
+-- 	ui.nav_next()
+-- end)
+--
+-- -- load colorscheme here to use the same harpoon theme
+-- vim.cmd("colorscheme rose-pine")
