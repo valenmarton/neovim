@@ -32,6 +32,7 @@ vim.cmd("highlight GitSignsChange guibg=NONE")
 vim.cmd("highlight GitSignsDelete guibg=NONE")
 
 -- statusline
+vim.cmd("set stl+=%{expand('%:~:.')}") -- show the current file relative path to the :pwd
 vim.cmd("highlight statusline gui=bold")
 vim.cmd("highlight statusline guifg=#908caa")
 vim.cmd("highlight statusline guibg=#26233a")
