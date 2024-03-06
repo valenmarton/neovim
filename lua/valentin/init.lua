@@ -30,3 +30,8 @@ vim.g.netrw_winsize = 25
 vim.cmd("highlight GitSignsAdd guibg=NONE")
 vim.cmd("highlight GitSignsChange guibg=NONE")
 vim.cmd("highlight GitSignsDelete guibg=NONE")
+
+-- statusline
+vim.cmd("highlight statusline gui=bold")
+vim.cmd("highlight statusline guifg=#908caa")
+vim.cmd("highlight statusline guibg=#26233a")

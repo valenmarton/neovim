@@ -350,6 +350,7 @@ require("lazy").setup({
 	-- { "wellle/context.vim" },
 	{
 		"nvim-tree/nvim-tree.lua",
+		enabled = false,
 		event = "VeryLazy",
 		opts = {},
 		keys = {
