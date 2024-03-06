@@ -1,7 +1,8 @@
 function set_cwd_to_current_file()
 	local current_file = vim.fn.expand("%:p")
 	local current_directory = vim.fn.fnamemodify(current_file, ":h")
-	print(current_file)
+	-- print(current_file)
+	print("Browsing with oil.nvim")
 	if string.find(current_directory, "oil") then
 		current_directory = string.sub(current_directory, 7)
 	end
