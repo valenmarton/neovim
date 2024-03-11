@@ -1,9 +1,9 @@
 -- require("lualine").setup({
 -- 	-- options = { theme = 'solarized_dark' },
 -- 	options = {
--- 		component_separators = "",
+-- 		-- component_separators = "",
 -- 		-- component_separators = " ",
--- 		-- component_separators = "│",
+-- 		component_separators = "│",
 -- 		-- section_separators = "",
 -- 		-- section_separators = { left = "", right = "" },
 -- 		icons_enabled = true,

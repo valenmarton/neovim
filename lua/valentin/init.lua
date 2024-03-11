@@ -2,7 +2,7 @@ function set_cwd_to_current_file()
 	local current_file = vim.fn.expand("%:p")
 	local current_directory = vim.fn.fnamemodify(current_file, ":h")
 	-- print(current_file)
-	print("Browsing with oil.nvim")
+	-- print("Browsing with oil.nvim")
 	if string.find(current_directory, "oil") then
 		current_directory = string.sub(current_directory, 7)
 	end
@@ -32,8 +32,15 @@ vim.cmd("highlight GitSignsAdd guibg=NONE")
 vim.cmd("highlight GitSignsChange guibg=NONE")
 vim.cmd("highlight GitSignsDelete guibg=NONE")
 
--- statusline
-vim.cmd("set stl+=%{expand('%:~:.')}") -- show the current file relative path to the :pwd
-vim.cmd("highlight statusline gui=bold")
-vim.cmd("highlight statusline guifg=#908caa")
-vim.cmd("highlight statusline guibg=#26233a")
+-- vim.cmd("set stl+=%{expand('%:~:.')}") -- show the current file relative path to the :pwd
+-- vim.cmd("set ruler") -- show the current file relative path to the :pwd
+-- vim.cmd("set rulerformat=%l,%v")
+-- vim.cmd("set statusline+=%{&modified?'[+]':''}") -- show the current file relative path to the :pwd
+-- vim.cmd("set statusline=%{expand('%:p:h:t')}/%t")
+-- vim.o.statusline = [[%{fnamemodify(expand("%"), ":~:.")}\ %l:%c]]
+-- vim.o.statusline = [[%{fnamemodify(expand("%"), ":~:.")}%=%l:%c]]
+--
+-- statusline without lualine
+-- vim.cmd("highlight statusline gui=bold")
+-- vim.cmd("highlight statusline guifg=#908caa")
+-- vim.cmd("highlight statusline guibg=#191724")

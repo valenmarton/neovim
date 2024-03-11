@@ -12,7 +12,6 @@ vim.opt.scrolloff = 8 --10 my previous preset (is 999 - cursor in the middle eve
 vim.opt.signcolumn = "yes"
 vim.opt.incsearch = true
 vim.opt.wrap = false
--- vim.opt.colorcolumn = "80"
 
 -- turning off swapfile, using undotree plugin instead
 vim.opt.swapfile = false
@@ -34,3 +33,6 @@ vim.opt.title = true
 
 -- no cursor in insert mode
 -- vim.opt.guicursor = ""
+
+-- column width indicator
+vim.opt.colorcolumn = "120"
