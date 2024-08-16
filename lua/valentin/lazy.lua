@@ -12,6 +12,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	{
+		"ibhagwan/fzf-lua",
+		enabled = false,
+	},
 	-- Colorschemes
 	{ "VonHeikemen/little-wonder" },
 	{ "NLKNguyen/papercolor-theme" },
