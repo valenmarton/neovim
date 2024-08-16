@@ -1,33 +1,35 @@
-require("lualine").setup({
-	options = {
-		theme = "catppuccin",
-		component_separators = "",
-		icons_enabled = true,
-	},
-	sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = {
-			{
-				"filename",
-				path = 1,
-				file_status = true,
-				shorting_target = 40, -- Shortens path to leave 40 spaces in the window
-				-- for other components. (terrible name, any suggestions?)
-				symbols = {
-					modified = "[+]", -- Text to show when the file is modified.
-					readonly = "[-]", -- Text to show when the file is non-modifiable or readonly.
-					unnamed = "[No Name]", -- Text to show for unnamed buffers.
-					newfile = "[New]", -- Text to show for newly created file before first write
-				},
-			},
-		},
-		lualine_x = { "location", "progress" },
-		lualine_y = {},
-		lualine_z = {},
-	},
-})
+-- require("lualine").setup({
+-- 	options = {
+-- 		-- theme = "catppuccin",
+-- 		component_separators = "",
+-- 		icons_enabled = true,
+-- 	},
+-- 	sections = {
+-- 		lualine_a = { "mode" },
+-- 		lualine_b = { "branch", "diff", "diagnostics" },
+-- 		lualine_c = {
+-- 			{
+-- 				"filename",
+-- 				path = 1,
+-- 				file_status = true,
+-- 				shorting_target = 40, -- Shortens path to leave 40 spaces in the window
+-- 				-- for other components. (terrible name, any suggestions?)
+-- 				symbols = {
+-- 					modified = "[+]", -- Text to show when the file is modified.
+-- 					readonly = "[-]", -- Text to show when the file is non-modifiable or readonly.
+-- 					unnamed = "[No Name]", -- Text to show for unnamed buffers.
+-- 					newfile = "[New]", -- Text to show for newly created file before first write
+-- 				},
+-- 			},
+-- 		},
+-- 		lualine_x = { "location", "progress" },
+-- 		lualine_y = {},
+-- 		lualine_z = {},
+-- 	},
+-- 	extensions = { "oil" },
+-- })
 
+--===================================================================================
 -- require("lualine").setup({
 -- 	-- options = { theme = 'solarized_dark' },
 -- 	options = {

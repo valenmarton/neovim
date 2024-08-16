@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- Colorscheme
+	-- Colorschemes
 	{ "VonHeikemen/little-wonder" },
 	{ "NLKNguyen/papercolor-theme" },
 	"rebelot/kanagawa.nvim",
@@ -37,7 +37,11 @@ require("lazy").setup({
 		-- 	vim.cmd([[colorscheme rose-pine]])
 		-- end,
 	},
-	{ "ellisonleao/gruvbox.nvim" },
+	{ "yorickpeterse/vim-paper", name = "paper" },
+	{
+		"morhetz/gruvbox",
+	},
+	{ "mcchrish/zenbones.nvim" },
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -46,7 +50,6 @@ require("lazy").setup({
 		--   vim.cmd([[colorscheme catppuccin]])
 		-- end
 	},
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	{
 		"folke/tokyonight.nvim",
 		opts = {
@@ -59,6 +62,7 @@ require("lazy").setup({
 	},
 	{
 		"bluz71/vim-nightfly-colors",
+		enabled = false,
 		opts = {
 			-- nightflyCursorColor = 1,
 		},
@@ -90,9 +94,31 @@ require("lazy").setup({
 			})
 		end,
 	},
+	{
+		"maxmx03/solarized.nvim",
+		name = "solar",
+		config = function() end,
+	},
+	"sainnhe/gruvbox-material",
+	{
+		"neanias/everforest-nvim",
+		version = false,
+		lazy = false,
+		priority = 1000, -- make sure to load this before all the other start plugins
+		-- Optional; default configuration will be used if setup isn't called.
+		config = function()
+			require("everforest").setup({
+				background = "light",
+				-- Your config here
+			})
+		end,
+	},
+	{ "craftzdog/solarized-osaka.nvim" },
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
 	-- Search
 	{ "nvim-telescope/telescope.nvim" },
+	{ "nvim-telescope/telescope-fzf-native.nvim" },
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v2.x",
@@ -161,6 +187,7 @@ require("lazy").setup({
 	},
 	-- { 'machakann/vim-sandwich' },
 	"tpope/vim-surround",
+	-- nicer input fields
 	{
 		"stevearc/dressing.nvim",
 		enabled = true,
@@ -175,7 +202,9 @@ require("lazy").setup({
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		enabled = true,
+		enabled = false,
+		opts = {},
+		-- enabled = false,
 		opts = {},
 	}, -- statusbar under
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
@@ -202,10 +231,6 @@ require("lazy").setup({
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
-			mode = "document_diagnostics",
-			action_keys = {
-				open_tab = { "<c-&>" },
-			},
 			fold_open = "󰁃", -- icon used for open folds
 			fold_closed = "",
 			icons = true,
@@ -217,6 +242,19 @@ require("lazy").setup({
 				information = "I:",
 				other = "O:",
 			},
+		}, -- for default options, refer to the configuration section for custom setup.
+		cmd = "Trouble",
+		keys = {
+			{
+				"<leader>xx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			},
+			-- opts = {
+			-- 	mode = "document_diagnostics",
+			-- 	action_keys = {
+			-- 		open_tab = { "<c-&>" },
+			-- 	},
 		},
 	},
 	{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons", enabled = false },
@@ -263,6 +301,7 @@ require("lazy").setup({
 	},
 	{
 		"max397574/better-escape.nvim",
+		enabled = false,
 		opts = {
 			mapping = { "jk", "kj" }, -- a table with mappings to use
 			timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
@@ -362,4 +401,5 @@ require("lazy").setup({
 			{ "n", "<leader>E", "<cmd>NvimTreeFindFile<cr>", { noremap = true, silent = true } },
 		},
 	},
+	{ "sindrets/diffview.nvim", event = "BufRead" },
 }, {})

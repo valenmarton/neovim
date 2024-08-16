@@ -95,12 +95,14 @@ require("lspconfig").tsserver.setup({
 	},
 })
 
--- require('lspconfig').tsserver.setup({
---   on_attach = function(client, bufnr)
---     print("hello tserver")
---   end
--- })
---
+require("lspconfig").tailwindcss.setup({
+	filetypes = { "html", "css", "scss" },
+})
+
+require("lspconfig").angularls.setup({
+	filetypes = { "html", "css" },
+})
+
 require("lspconfig").html.setup({
 	on_attach = function(client, bufnr)
 		print(client)

@@ -14,8 +14,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- using trouble instead
--- vim.keymap.set("n", "<C-j>", "<cmd>lua vim.diagnostic.goto_next()<CR>")
--- vim.keymap.set("n", "<C-k>", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+vim.keymap.set("n", "<C-j>", "<C-f>")
+vim.keymap.set("n", "<C-k>", "<C-b>")
 
 -- do not yank with x
 vim.keymap.set("n", "x", '"_x')
@@ -23,8 +23,9 @@ vim.keymap.set("n", "x", '"_x')
 vim.keymap.set("n", "<leader>bd", "<cmd>%bd|e#<cr>", { desc = "Close all buffers but the current one" }) -- https://stackoverflow.com/a/42071865/516188
 
 -- Save on ctrl+s
-vim.keymap.set({ "n", "i" }, "<C-s>", "<Esc><CMD>w<CR>")
--- vim.keymap.set({ "n", "i" }, "<C-a>", "<Esc>ggVG")
+vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<Esc><CMD>w<CR>")
+-- copy everything to clipboard
+vim.keymap.set({ "n", "i" }, "<C-a>", '<Esc>ggVG"*y')
 
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
