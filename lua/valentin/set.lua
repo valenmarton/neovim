@@ -9,7 +9,7 @@ vim.smarttab = true
 vim.opt.shell = "/bin/zsh"
 
 --vim.opt.scrolloff = 8 --10 my previous preset (is 999 - cursor in the middle every time - useful?)
-vim.opt.signcolumn = "yes"
+-- vim.opt.signcolumn = "yes"
 vim.opt.incsearch = true
 vim.opt.wrap = false
 
@@ -35,4 +35,6 @@ vim.opt.title = true
 -- vim.opt.guicursor = ""
 
 -- column width indicator
-vim.opt.colorcolumn = "120"
+-- vim.opt.colorcolumn = "120"
+
+vim.opt.cmdheight = 2

@@ -4,15 +4,15 @@ require("conform").setup({
 		-- Conform will run multiple formatters sequentially
 		python = { "isort", "black" },
 		-- Use a sub-list to run only the first available formatter
-		javascript = { { "prettierd", "prettier" } },
-		typescript = { { "prettierd", "prettier" } },
-		html = { { "prettierd", "prettier" } },
-		css = { { "prettierd", "prettier" } },
-		angular = { { "prettierd", "prettier" } },
-		scss = { { "prettierd", "prettier" } },
-		json = { { "prettierd", "prettier" } },
-		yaml = { { "prettierd", "prettier" } },
-		markdown = { { "prettierd", "prettier" } },
+		javascript = { "prettierd", "prettier", stop_after_first = true },
+		typescript = { "prettierd", "prettier", stop_after_first = true },
+		html = { "prettierd", "prettier", stop_after_first = true },
+		css = { "prettierd", "prettier", stop_after_first = true },
+		angular = { "prettierd", "prettier", stop_after_first = true },
+		scss = { "prettierd", "prettier", stop_after_first = true },
+		json = { "prettierd", "prettier", stop_after_first = true },
+		yaml = { "prettierd", "prettier", stop_after_first = true },
+		markdown = { "prettierd", "prettier", stop_after_first = true },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()

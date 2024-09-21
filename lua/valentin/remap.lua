@@ -56,3 +56,5 @@ vim.keymap.set("n", "<leader><Tab>", ":b#<CR>")
 -- vim.keymap.set("n", "<C-y>", "<cmd>bn<CR>")
 --
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { silent = true })
+--this in lua
+vim.keymap.set("n", "C-l", "<cmd>hlsearch let @/ = expand('<cword>')<cr>", { desc = "Clear highlights" })

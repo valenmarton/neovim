@@ -1,17 +1,17 @@
 local actions = require("telescope.actions")
 -- DEFAULTS
 require("telescope").setup({
-	defaults = {
-		layout_config = {
-			vertical = { width = 0.5 },
-		},
-		mappings = {
-			i = {
-				["<C-j>"] = actions.move_selection_next,
-				["<C-k>"] = actions.move_selection_previous,
-			},
-		},
-	},
+  defaults = {
+    layout_config = {
+      vertical = { width = 0.5 },
+    },
+    mappings = {
+      i = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+      },
+    },
+  },
 })
 
 local builtin = require("telescope.builtin")
@@ -21,7 +21,7 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader><space>", builtin.git_files, {})
 vim.keymap.set("n", "<leader>sw", builtin.grep_string, {})
 vim.keymap.set("n", "<leader>ps", function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") })
+  builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
 
 vim.keymap.set("n", "<leader>gs", builtin.git_status, {})
@@ -41,8 +41,8 @@ vim.keymap.set("n", "<leader>cs", "<cmd>Telescope colorscheme<cr>", opts)
 -- end)
 
 vim.keymap.set("n", "<leader>sW", function()
-	local word = vim.fn.expand("<cWORD>")
-	builtin.grep_string({ search = word })
+  local word = vim.fn.expand("<cWORD>")
+  builtin.grep_string({ search = word })
 end)
 
 vim.keymap.set("n", "<leader>sr", builtin.oldfiles, {}) --search recent
@@ -52,10 +52,10 @@ vim.keymap.set("n", "<leader>sr", builtin.oldfiles, {}) --search recent
 vim.keymap.set("n", "<leader>ss", builtin.lsp_document_symbols, {}) --search symbols
 
 vim.keymap.set("n", "<leader>,", function()
-	builtin.buffers({ sort_mru = true, ignore_current_buffer = true })
+  builtin.buffers({ sort_mru = true, ignore_current_buffer = true })
 end)
 
 vim.keymap.set("n", "<leader>.", builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set("n", "<leader>/", builtin.live_grep, {})
 
-require("telescope").load_extension("fzf")
+-- require("telescope").load_extension("fzf")
